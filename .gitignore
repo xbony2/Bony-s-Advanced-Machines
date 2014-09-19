@@ -13,3 +13,8 @@ hs_err_pid*
 
 #mac
 .DS_Store
+
+#dependcies
+src/main/java/mods/immibis/cobaltite/
+src/main/java/mods/immibis/core/
+src/main/resources/assets/immibis_core/

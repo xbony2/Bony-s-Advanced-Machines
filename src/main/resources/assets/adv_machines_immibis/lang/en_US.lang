@@ -1,0 +1,28 @@
+tile.advmachine.macerator.name=Rotary Macerator
+tile.advmachine.compressor.name=Singularity Compressor
+tile.advmachine.extractor.name=Centrifuge Extractor
+tile.advmachine.canner.name=Vacuum Canner
+tile.advmachine.washer.name=Thermal Washer
+tile.advmachine.recycler.name=Compacting Recycler
+tile.advmachine.extruder.name=Liquescent Extruder
+tile.advmachine.roller.name=Impellerized Roller
+tile.advmachine.cutter.name=Water-Jet Cutter
+
+tile.advmachine.arraycable.name=Array Cable
+tile.advmachine.arraysolar.name=Array Solar Panel
+tile.advmachine.arraywind.name=Array Windmill
+tile.advmachine.arraywater.name=Array Watermill
+tile.advmachine.arraycontroller.name=Array Controller
+advmachine.arraycontroller.rclick01=--- ARRAY CONTROLLER ---
+advmachine.arraycontroller.rclickRR=Refresh rate: every %s ticks (checking %s blocks)
+advmachine.arraycontroller.rclickSP=%s unobstructed solar panels
+advmachine.arraycontroller.rclickWA=%s EU/t from watermills
+advmachine.arraycontroller.rclickWI=%s EU/t from windmills (right now)
+advmachine.arraycontroller.rclickCP=Current production: %s EU/t
+
+item.advmachine.sharpplate.name=Sharpened Iron Plate
+
+gui.advmachine.pressure=Pressure:\n%1$d\nGibbl
+gui.advmachine.speed=Speed:\n%1$d\nRPM
+gui.advmachine.canner.speed=Speed: %1$d cm/s
+gui.advmachine.temp=Heat:\n%1$d%%
