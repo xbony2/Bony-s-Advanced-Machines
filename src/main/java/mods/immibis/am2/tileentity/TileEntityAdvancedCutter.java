@@ -14,7 +14,7 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidHandler;
 
-public class TileAM2Cutter extends TileAM2Base implements IFluidHandler {
+public class TileEntityAdvancedCutter extends AM2BaseTileEntity implements IFluidHandler {
 
 	static final int MAX_WATER = 8000;
 	static final int WATER_PER_OP = 500;

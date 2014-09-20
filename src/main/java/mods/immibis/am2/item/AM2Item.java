@@ -3,9 +3,9 @@ package mods.immibis.am2.item;
 import net.minecraft.block.Block;
 import mods.immibis.core.ItemCombined;
 
-public class ItemAM2 extends ItemCombined {
+public class AM2Item extends ItemCombined {
 
-	public ItemAM2(Block id) {
+	public AM2Item(Block id) {
 		super(id, "advmachine", new String[] {
 			"macerator",
 			"compressor",

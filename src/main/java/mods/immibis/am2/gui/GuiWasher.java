@@ -1,7 +1,7 @@
 package mods.immibis.am2.gui;
 
 import mods.immibis.am2.container.ContainerWasher;
-import mods.immibis.am2.tileentity.TileAM2Washer;
+import mods.immibis.am2.tileentity.TileEntityAdvancedWasher;
 import mods.immibis.core.api.util.BaseGuiContainer;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.resources.I18n;
@@ -37,7 +37,7 @@ public class GuiWasher extends BaseGuiContainer<ContainerWasher> {
 			// draw water bar
 			mc.renderEngine.bindTexture(TextureMap.locationBlocksTexture);
 			
-			int waterPixels = (container.water * 47) / TileAM2Washer.MAX_WATER;
+			int waterPixels = (container.water * 47) / TileEntityAdvancedWasher.MAX_WATER;
 			
 			int cur_y = 71 - waterPixels;
 			while(waterPixels > 0) {

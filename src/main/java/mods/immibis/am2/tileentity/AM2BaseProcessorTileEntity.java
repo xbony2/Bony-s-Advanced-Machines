@@ -11,7 +11,7 @@ import net.minecraft.util.ResourceLocation;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public abstract class TileAM2BaseProcessor extends TileAM2Base {
+public abstract class AM2BaseProcessorTileEntity extends AM2BaseTileEntity {
 	
 	public int runningEUPerTick = AdvancedMachines.runningEUPerTick;
 	public int idleEUPerTick = AdvancedMachines.idleEUPerTick;

@@ -10,7 +10,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
-public class TileAM2Canner extends TileAM2Base {
+public class TileEntityAdvancedCanner extends AM2BaseTileEntity {
 	
 	private ItemStack[] movingCans = new ItemStack[8];
 	private int canMoveProgress;

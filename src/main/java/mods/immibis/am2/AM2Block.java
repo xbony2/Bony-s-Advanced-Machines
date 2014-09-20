@@ -4,16 +4,16 @@ import ic2.core.IC2;
 
 import java.util.List;
 
-import mods.immibis.am2.tileentity.TileAM2Base;
-import mods.immibis.am2.tileentity.TileAM2Canner;
-import mods.immibis.am2.tileentity.TileAM2Compressor;
-import mods.immibis.am2.tileentity.TileAM2Cutter;
-import mods.immibis.am2.tileentity.TileAM2Extractor;
-import mods.immibis.am2.tileentity.TileAM2Extruder;
-import mods.immibis.am2.tileentity.TileAM2Macerator;
-import mods.immibis.am2.tileentity.TileAM2Recycler;
-import mods.immibis.am2.tileentity.TileAM2Roller;
-import mods.immibis.am2.tileentity.TileAM2Washer;
+import mods.immibis.am2.tileentity.AM2BaseTileEntity;
+import mods.immibis.am2.tileentity.TileEntityAdvancedCanner;
+import mods.immibis.am2.tileentity.TileEntityAdvancedCompressor;
+import mods.immibis.am2.tileentity.TileEntityAdvancedCutter;
+import mods.immibis.am2.tileentity.TileEntityAdvancedExtractor;
+import mods.immibis.am2.tileentity.TileEntityAdvancedExtruder;
+import mods.immibis.am2.tileentity.TileEntityAdvancedMacerator;
+import mods.immibis.am2.tileentity.TileEntityAdvancedRecycler;
+import mods.immibis.am2.tileentity.TileEntityAdvancedRoller;
+import mods.immibis.am2.tileentity.TileEntityAdvancedWasher;
 import mods.immibis.core.BlockCombined;
 import mods.immibis.core.RenderUtilsIC;
 import mods.immibis.core.api.util.Dir;
@@ -26,7 +26,7 @@ import net.minecraft.world.IBlockAccess;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockAM2 extends BlockCombined {
+public class AM2Block extends BlockCombined {
 	
 	public static final int META_MACERATOR = 0;
 	public static final int META_COMPRESSOR = 1;
@@ -40,7 +40,7 @@ public class BlockAM2 extends BlockCombined {
 	//public static final int META_ELECTROLYZER = 3;
 	//public static final int META_DEELECTROLYZER = 4;
 
-	public BlockAM2() {
+	public AM2Block() {
 		super(Material.iron);
 		setCreativeTab(IC2.tabIC2);
 	}
@@ -79,40 +79,40 @@ public class BlockAM2 extends BlockCombined {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(IBlockAccess par1iBlockAccess, int par2, int par3, int par4, int par5) {
-		try {
-			TileAM2Base te = (TileAM2Base)par1iBlockAccess.getTileEntity(par2, par3, par4);
-			return getIcon(par5, par1iBlockAccess.getBlockMetadata(par2, par3, par4), te.getFacing(), te.isVisuallyActive());
-		} catch(Exception e) {
+		try{
+			AM2BaseTileEntity tileentity = (AM2BaseTileEntity)par1iBlockAccess.getTileEntity(par2, par3, par4);
+			return getIcon(par5, par1iBlockAccess.getBlockMetadata(par2, par3, par4), tileentity.getFacing(), tileentity.isVisuallyActive());
+		}catch(Exception e){
 			e.printStackTrace();
 			return null;
 		}
 	}
 
 	@Override
-	public TileEntity getBlockEntity(int data) {
-		switch(data) {
-		case META_MACERATOR: return new TileAM2Macerator();
-		case META_COMPRESSOR: return new TileAM2Compressor();
-		case META_EXTRACTOR: return new TileAM2Extractor();
-		case META_CANNER: return new TileAM2Canner();
-		case META_WASHER: return new TileAM2Washer();
-		case META_RECYCLER: return new TileAM2Recycler();
-		case META_EXTRUDER: return new TileAM2Extruder();
-		case META_ROLLER: return new TileAM2Roller();
-		case META_CUTTER: return new TileAM2Cutter();
+	public TileEntity getBlockEntity(int data){
+		switch(data){
+		case META_MACERATOR: return new TileEntityAdvancedMacerator();
+		case META_COMPRESSOR: return new TileEntityAdvancedCompressor();
+		case META_EXTRACTOR: return new TileEntityAdvancedExtractor();
+		case META_CANNER: return new TileEntityAdvancedCanner();
+		case META_WASHER: return new TileEntityAdvancedWasher();
+		case META_RECYCLER: return new TileEntityAdvancedRecycler();
+		case META_EXTRUDER: return new TileEntityAdvancedExtruder();
+		case META_ROLLER: return new TileEntityAdvancedRoller();
+		case META_CUTTER: return new TileEntityAdvancedCutter();
 		}
 		return null;
 	}
 
 	@Override
-	public void getCreativeItems(List<ItemStack> arraylist) {
+	public void getCreativeItems(List<ItemStack> arraylist){
 		arraylist.add(new ItemStack(this, 1, META_MACERATOR));
 		arraylist.add(new ItemStack(this, 1, META_COMPRESSOR));
 		arraylist.add(new ItemStack(this, 1, META_EXTRACTOR));
 		arraylist.add(new ItemStack(this, 1, META_CANNER));
 		arraylist.add(new ItemStack(this, 1, META_WASHER));
 		arraylist.add(new ItemStack(this, 1, META_RECYCLER));
-		if(AdvancedMachines.enableAdvancedMetalFormers) {
+		if(AdvancedMachines.enableAdvancedMetalFormers){
 			arraylist.add(new ItemStack(this, 1, META_EXTRUDER));
 			arraylist.add(new ItemStack(this, 1, META_ROLLER));
 			arraylist.add(new ItemStack(this, 1, META_CUTTER));
@@ -120,12 +120,12 @@ public class BlockAM2 extends BlockCombined {
 	}
 	
 	@Override
-	public boolean canProvidePower() {
+	public boolean canProvidePower(){
 		return false;
 	}
 	
 	@Override
-	public boolean isOpaqueCube() {
+	public boolean isOpaqueCube(){
 		return true;
 	}
 }

@@ -1,6 +1,6 @@
 package mods.immibis.am2.container;
 
-import mods.immibis.am2.tileentity.TileAM2Canner;
+import mods.immibis.am2.tileentity.TileEntityAdvancedCanner;
 import mods.immibis.core.BasicInventory;
 import mods.immibis.core.api.util.BaseContainer;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,8 +11,8 @@ import net.minecraft.item.ItemStack;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ContainerCanner extends BaseContainer<TileAM2Canner> {
-	public ContainerCanner(EntityPlayer ply, TileAM2Canner inv) {
+public class ContainerCanner extends BaseContainer<TileEntityAdvancedCanner> {
+	public ContainerCanner(EntityPlayer ply, TileEntityAdvancedCanner inv) {
 		super(ply, inv);
 		
 		for(int x = 0; x < 9; x++)
@@ -21,10 +21,10 @@ public class ContainerCanner extends BaseContainer<TileAM2Canner> {
 			for(int x = 0; x < 9; x++)
 				addSlotToContainer(new Slot(ply.inventory, x + y*9 + 9, 8 + x*18, 84 + y*18));
 		
-		addSlotToContainer(new Slot((IInventory)inv, TileAM2Canner.SLOT_BATTERY, 121, 25));
-		addSlotToContainer(new Slot((IInventory)inv, TileAM2Canner.SLOT_CAN, 15, 48));
-		addSlotToContainer(new Slot((IInventory)inv, TileAM2Canner.SLOT_ITEM, 79, 7));
-		addSlotToContainer(new Slot((IInventory)inv, TileAM2Canner.SLOT_OUT, 144, 48));
+		addSlotToContainer(new Slot((IInventory)inv, TileEntityAdvancedCanner.SLOT_BATTERY, 121, 25));
+		addSlotToContainer(new Slot((IInventory)inv, TileEntityAdvancedCanner.SLOT_CAN, 15, 48));
+		addSlotToContainer(new Slot((IInventory)inv, TileEntityAdvancedCanner.SLOT_ITEM, 79, 7));
+		addSlotToContainer(new Slot((IInventory)inv, TileEntityAdvancedCanner.SLOT_OUT, 144, 48));
 	}
 	
 	public int[] movingCanIDs = new int[8];
@@ -86,7 +86,7 @@ public class ContainerCanner extends BaseContainer<TileAM2Canner> {
 		return null;
 	}
 
-	public TileAM2Canner getTile() {
+	public TileEntityAdvancedCanner getTile() {
 		return inv;
 	}
 }

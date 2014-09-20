@@ -7,25 +7,25 @@ import mods.immibis.am2.arrays.ArrayControllerBlock;
 import mods.immibis.am2.arrays.ArrayControllerTile;
 import mods.immibis.am2.arrays.ArrayGeneratorBlock;
 import mods.immibis.am2.arrays.ArrayGeneratorItem;
-import mods.immibis.am2.container.ContainerAM2;
+import mods.immibis.am2.container.AM2Container;
 import mods.immibis.am2.container.ContainerCanner;
 import mods.immibis.am2.container.ContainerCutter;
 import mods.immibis.am2.container.ContainerWasher;
-import mods.immibis.am2.gui.GuiAM2;
+import mods.immibis.am2.gui.AM2Gui;
 import mods.immibis.am2.gui.GuiCanner;
 import mods.immibis.am2.gui.GuiCutter;
 import mods.immibis.am2.gui.GuiWasher;
-import mods.immibis.am2.item.ItemAM2;
+import mods.immibis.am2.item.AM2Item;
 import mods.immibis.am2.item.ItemSharpPlate;
-import mods.immibis.am2.tileentity.TileAM2Canner;
-import mods.immibis.am2.tileentity.TileAM2Compressor;
-import mods.immibis.am2.tileentity.TileAM2Cutter;
-import mods.immibis.am2.tileentity.TileAM2Extractor;
-import mods.immibis.am2.tileentity.TileAM2Extruder;
-import mods.immibis.am2.tileentity.TileAM2Macerator;
-import mods.immibis.am2.tileentity.TileAM2Recycler;
-import mods.immibis.am2.tileentity.TileAM2Roller;
-import mods.immibis.am2.tileentity.TileAM2Washer;
+import mods.immibis.am2.tileentity.TileEntityAdvancedCanner;
+import mods.immibis.am2.tileentity.TileEntityAdvancedCompressor;
+import mods.immibis.am2.tileentity.TileEntityAdvancedCutter;
+import mods.immibis.am2.tileentity.TileEntityAdvancedExtractor;
+import mods.immibis.am2.tileentity.TileEntityAdvancedExtruder;
+import mods.immibis.am2.tileentity.TileEntityAdvancedMacerator;
+import mods.immibis.am2.tileentity.TileEntityAdvancedRecycler;
+import mods.immibis.am2.tileentity.TileEntityAdvancedRoller;
+import mods.immibis.am2.tileentity.TileEntityAdvancedWasher;
 import mods.immibis.cobaltite.AssignedBlock;
 import mods.immibis.cobaltite.AssignedItem;
 import mods.immibis.cobaltite.CobaltiteMod;
@@ -51,21 +51,21 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 @Mod(modid = "AdvancedMachines", version = "59.0.1", dependencies = "required-after:IC2;required-after:ImmibisCore", name = "Advanced Machines")
 @CobaltiteMod(tiles = {
-	@RegisteredTile(id = "Rotary Macerator", tile = TileAM2Macerator.class),
-	@RegisteredTile(id = "Singularity Compressor", tile = TileAM2Compressor.class),
-	@RegisteredTile(id = "Centrifuge Extractor", tile = TileAM2Extractor.class),
-	@RegisteredTile(id = "immibis.am2.canner", tile = TileAM2Canner.class),
-	@RegisteredTile(id = "immibis.am2.washer", tile = TileAM2Washer.class),
-	@RegisteredTile(id = "immibis.am2.recycler", tile = TileAM2Recycler.class),
+	@RegisteredTile(id = "Rotary Macerator", tile = TileEntityAdvancedMacerator.class),
+	@RegisteredTile(id = "Singularity Compressor", tile = TileEntityAdvancedCompressor.class),
+	@RegisteredTile(id = "Centrifuge Extractor", tile = TileEntityAdvancedExtractor.class),
+	@RegisteredTile(id = "immibis.am2.canner", tile = TileEntityAdvancedCanner.class),
+	@RegisteredTile(id = "immibis.am2.washer", tile = TileEntityAdvancedWasher.class),
+	@RegisteredTile(id = "immibis.am2.recycler", tile = TileEntityAdvancedRecycler.class),
 	@RegisteredTile(id = "immibis.am2.arraycontroller", tile = ArrayControllerTile.class),
-	@RegisteredTile(id = "immibis.am2.extruder", tile = TileAM2Extruder.class),
-	@RegisteredTile(id = "immibis.am2.roller", tile = TileAM2Roller.class),
-	@RegisteredTile(id = "immibis.am2.cutter", tile = TileAM2Cutter.class),
+	@RegisteredTile(id = "immibis.am2.extruder", tile = TileEntityAdvancedExtruder.class),
+	@RegisteredTile(id = "immibis.am2.roller", tile = TileEntityAdvancedRoller.class),
+	@RegisteredTile(id = "immibis.am2.cutter", tile = TileEntityAdvancedCutter.class),
 })
 @FMLModInfo(authors="immibis", description="Upgraded IC2 machines", url="http://www.minecraftforum.net/topic/1001131-/")
 public class AdvancedMachines extends ModBase {
-	@AssignedBlock(id = "block", item = ItemAM2.class)
-	public static BlockAM2 block;
+	@AssignedBlock(id = "block", item = AM2Item.class)
+	public static AM2Block block;
 	
 	// TODO we have no way to disable this block when enableArrayModule is false
 	@AssignedBlock(id = "arrayCable", item = ArrayCableItem.class)
@@ -82,7 +82,7 @@ public class AdvancedMachines extends ModBase {
 	@AssignedItem(id = "sharpPlate")
 	public static ItemSharpPlate sharpPlate;
 	
-	@TileGUI(container = ContainerAM2.class, gui = GuiAM2.class)
+	@TileGUI(container = AM2Container.class, gui = AM2Gui.class)
 	public static final int GUI_PROCESSOR = 0;
 	
 	@TileGUI(container = ContainerCanner.class, gui = GuiCanner.class)
@@ -165,28 +165,28 @@ public class AdvancedMachines extends ModBase {
 			'^', Items.flint,
 			'#', useOreDictionaryIronPlate ? "plateIron" : items.getItem("plateiron")
 			));
-		GameRegistry.addRecipe(new ItemStack(block, 1, BlockAM2.META_MACERATOR),
+		GameRegistry.addRecipe(new ItemStack(block, 1, AM2Block.META_MACERATOR),
 			"###",
 			"#M#",
 			"#X#",
 			'#', sharpPlate, //items.getItem("refinedIronIngot"),
 			'M', items.getItem("macerator"),
 			'X', items.getItem("advancedMachine"));
-		GameRegistry.addRecipe(new ItemStack(block, 1, BlockAM2.META_EXTRACTOR),
+		GameRegistry.addRecipe(new ItemStack(block, 1, AM2Block.META_EXTRACTOR),
 			"###",
 			"#M#",
 			"#X#",
 			'#', items.getItem("electrolyzedWaterCell"),
 			'M', items.getItem("extractor"),
 			'X', items.getItem("advancedMachine"));
-		GameRegistry.addRecipe(new ItemStack(block, 1, BlockAM2.META_COMPRESSOR),
+		GameRegistry.addRecipe(new ItemStack(block, 1, AM2Block.META_COMPRESSOR),
 			"###",
 			"#M#",
 			"#X#",
 			'#', Blocks.obsidian,
 			'M', items.getItem("compressor"),
 			'X', items.getItem("advancedMachine"));
-		GameRegistry.addRecipe(new ItemStack(block, 1, BlockAM2.META_CANNER),
+		GameRegistry.addRecipe(new ItemStack(block, 1, AM2Block.META_CANNER),
 			"#P#",
 			"#M#",
 			"#X#",
@@ -194,14 +194,14 @@ public class AdvancedMachines extends ModBase {
 			'M', items.getItem("canner"),
 			'X', items.getItem("advancedMachine"),
 			'#', items.getItem("airCell"));
-		GameRegistry.addRecipe(new ItemStack(block, 1, BlockAM2.META_WASHER),
+		GameRegistry.addRecipe(new ItemStack(block, 1, AM2Block.META_WASHER),
 			"###",
 			"#M#",
 			"#X#",
 			'M', items.getItem("orewashingplant"),
 			'#', items.getItem("sulfurDust"),
 			'X', items.getItem("advancedMachine"));
-		GameRegistry.addRecipe(new ItemStack(block, 1, BlockAM2.META_RECYCLER),
+		GameRegistry.addRecipe(new ItemStack(block, 1, AM2Block.META_RECYCLER),
 			"###",
 			"#M#",
 			"#X#",
@@ -210,21 +210,21 @@ public class AdvancedMachines extends ModBase {
 			'#', Blocks.piston);
 		
 		if(enableAdvancedMetalFormers) {
-			GameRegistry.addRecipe(new ItemStack(block, 1, BlockAM2.META_EXTRUDER),
+			GameRegistry.addRecipe(new ItemStack(block, 1, AM2Block.META_EXTRUDER),
 				"###",
 				"#M#",
 				"#X#",
 				'M', items.getItem("metalformer"),
 				'X', items.getItem("advancedMachine"),
 				'#', items.getItem("ironFence"));
-			GameRegistry.addRecipe(new ItemStack(block, 1, BlockAM2.META_ROLLER),
+			GameRegistry.addRecipe(new ItemStack(block, 1, AM2Block.META_ROLLER),
 				"###",
 				"#M#",
 				"#X#",
 				'M', items.getItem("metalformer"),
 				'X', items.getItem("advancedMachine"),
 				'#', items.getItem("ForgeHammer"));
-			GameRegistry.addRecipe(new ItemStack(block, 1, BlockAM2.META_CUTTER),
+			GameRegistry.addRecipe(new ItemStack(block, 1, AM2Block.META_CUTTER),
 				"###",
 				"#M#",
 				"#X#",

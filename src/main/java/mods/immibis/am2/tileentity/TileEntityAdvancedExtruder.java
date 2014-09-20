@@ -7,41 +7,40 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
-public class TileAM2Roller extends TileAM2BaseProcessor {
-	
+public class TileEntityAdvancedExtruder extends AM2BaseProcessorTileEntity {
+
 	{
 		idleEUPerTick = AdvancedMachines.idleEUPerTick_formers;
 		runningEUPerTick = AdvancedMachines.runningEUPerTick_formers;
 	}
-
+	
 	@Override
 	public ResourceLocation getGUIResource() {
-		return new ResourceLocation("adv_machines_immibis", "textures/gui/GUIRoller.png");
+		return new ResourceLocation("adv_machines_immibis", "textures/gui/GUIExtruder.png");
 	}
 
 	@Override
 	public String getGUIText(int speed) {
-		return I18n.format("gui.advmachine.pressure", speed).replace("\\n", "\n");
+		return I18n.format("gui.advmachine.temp", (speed*100+MAX_SPEED/2)/MAX_SPEED).replace("\\n", "\n");
 	}
 
 	@Override
 	public String getMachineName() {
-		return "tile.advmachine.roller.name";
+		return "tile.advmachine.extruder.name";
 	}
 
 	@Override
 	public int getNumOutputSlots() {
-		return 1;
+		return 3;
 	}
 
 	@Override
 	public RecipeOutput getOutputFor(ItemStack input, boolean consume) {
-		return Recipes.metalformerRolling.getOutputFor(input, consume);
+		return Recipes.metalformerExtruding.getOutputFor(input, consume);
 	}
 
 	@Override
 	public String getSound() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	

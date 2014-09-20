@@ -14,7 +14,7 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidHandler;
 
-public class TileAM2Washer extends TileAM2Base implements IFluidHandler {
+public class TileEntityAdvancedWasher extends AM2BaseTileEntity implements IFluidHandler {
 	
 	public static final int MAX_WATER = 8000;
 	static final int WATER_PER_OP = 500;

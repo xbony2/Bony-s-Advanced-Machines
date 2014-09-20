@@ -1,6 +1,6 @@
 package mods.immibis.am2.container;
 
-import mods.immibis.am2.tileentity.TileAM2Washer;
+import mods.immibis.am2.tileentity.TileEntityAdvancedWasher;
 import mods.immibis.core.BasicInventory;
 import mods.immibis.core.api.util.BaseContainer;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,8 +10,8 @@ import net.minecraft.item.ItemStack;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ContainerWasher extends BaseContainer<TileAM2Washer> {
-	public ContainerWasher(EntityPlayer ply, TileAM2Washer inv) {
+public class ContainerWasher extends BaseContainer<TileEntityAdvancedWasher> {
+	public ContainerWasher(EntityPlayer ply, TileEntityAdvancedWasher inv) {
 		super(ply, inv);
 		
 		for(int x = 0; x < 9; x++)
@@ -20,11 +20,11 @@ public class ContainerWasher extends BaseContainer<TileAM2Washer> {
 			for(int x = 0; x < 9; x++)
 				addSlotToContainer(new Slot(ply.inventory, x + y*9 + 9, 8 + x*18, 84 + y*18));
 		
-		addSlotToContainer(new Slot((IInventory)inv, TileAM2Washer.SLOT_IN, 104, 17));
-		addSlotToContainer(new Slot((IInventory)inv, TileAM2Washer.SLOT_BATTERY, 152, 62));
-		addSlotToContainer(new Slot((IInventory)inv, TileAM2Washer.SLOT_OUT1, 86, 62));
-		addSlotToContainer(new Slot((IInventory)inv, TileAM2Washer.SLOT_OUT2, 104, 62));
-		addSlotToContainer(new Slot((IInventory)inv, TileAM2Washer.SLOT_OUT3, 122, 62));
+		addSlotToContainer(new Slot((IInventory)inv, TileEntityAdvancedWasher.SLOT_IN, 104, 17));
+		addSlotToContainer(new Slot((IInventory)inv, TileEntityAdvancedWasher.SLOT_BATTERY, 152, 62));
+		addSlotToContainer(new Slot((IInventory)inv, TileEntityAdvancedWasher.SLOT_OUT1, 86, 62));
+		addSlotToContainer(new Slot((IInventory)inv, TileEntityAdvancedWasher.SLOT_OUT2, 104, 62));
+		addSlotToContainer(new Slot((IInventory)inv, TileEntityAdvancedWasher.SLOT_OUT3, 122, 62));
 	}
 	
 	public int water = 0;
@@ -60,8 +60,8 @@ public class ContainerWasher extends BaseContainer<TileAM2Washer> {
 			if(stack == null)
 				return null;
 			
-			boolean isInput = inv.canInsert(TileAM2Washer.SLOT_IN, stack);
-			boolean isBattery = inv.canInsert(TileAM2Washer.SLOT_BATTERY, stack);
+			boolean isInput = inv.canInsert(TileEntityAdvancedWasher.SLOT_IN, stack);
+			boolean isBattery = inv.canInsert(TileEntityAdvancedWasher.SLOT_BATTERY, stack);
 			
 			if(isBattery && isInput) {
 				// input first, then battery

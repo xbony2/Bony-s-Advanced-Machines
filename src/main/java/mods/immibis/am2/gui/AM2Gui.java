@@ -1,12 +1,12 @@
 package mods.immibis.am2.gui;
 
-import mods.immibis.am2.container.ContainerAM2;
+import mods.immibis.am2.container.AM2Container;
 import mods.immibis.core.api.util.BaseGuiContainer;
 import net.minecraft.client.resources.I18n;
 
-public class GuiAM2 extends BaseGuiContainer<ContainerAM2> {
+public class AM2Gui extends BaseGuiContainer<AM2Container> {
 
-	public GuiAM2(ContainerAM2 container) {
+	public AM2Gui(AM2Container container) {
 		super(container, 176, 166, container.getTile().getGUIResource());
 	}
 

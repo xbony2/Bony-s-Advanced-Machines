@@ -28,7 +28,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @UsesTraits
-public abstract class TileAM2Base extends TileCombined implements IWrenchable, IEnergySink, IInventoryTraitUser {
+public abstract class AM2BaseTileEntity extends TileCombined implements IWrenchable, IEnergySink, IInventoryTraitUser {
 	
 	protected abstract int getBatterySlotNumber();
 	

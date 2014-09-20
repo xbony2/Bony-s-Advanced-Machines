@@ -1,6 +1,6 @@
 package mods.immibis.am2.container;
 
-import mods.immibis.am2.tileentity.TileAM2BaseProcessor;
+import mods.immibis.am2.tileentity.AM2BaseProcessorTileEntity;
 import mods.immibis.core.BasicInventory;
 import mods.immibis.core.api.util.BaseContainer;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,8 +10,8 @@ import net.minecraft.item.ItemStack;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ContainerAM2 extends BaseContainer<TileAM2BaseProcessor> {
-	public ContainerAM2(EntityPlayer ply, TileAM2BaseProcessor inv) {
+public class AM2Container extends BaseContainer<AM2BaseProcessorTileEntity> {
+	public AM2Container(EntityPlayer ply, AM2BaseProcessorTileEntity inv) {
 		super(ply, inv);
 		
 		for(int x = 0; x < 9; x++)
@@ -83,7 +83,7 @@ public class ContainerAM2 extends BaseContainer<TileAM2BaseProcessor> {
 		return null;
 	}
 
-	public TileAM2BaseProcessor getTile() {
+	public AM2BaseProcessorTileEntity getTile() {
 		return inv;
 	}
 }

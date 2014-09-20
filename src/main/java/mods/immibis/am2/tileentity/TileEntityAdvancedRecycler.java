@@ -10,7 +10,7 @@ import net.minecraft.util.ResourceLocation;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class TileAM2Recycler extends TileAM2BaseProcessor {
+public class TileEntityAdvancedRecycler extends AM2BaseProcessorTileEntity {
 	
 	@Override
 	public String getSound() {

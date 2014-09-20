@@ -8,32 +8,32 @@ import net.minecraft.util.ResourceLocation;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class TileAM2Extractor extends TileAM2BaseProcessor {
-	
-	@Override
-	public String getSound() {
-		return "Machines/ExtractorOp.ogg";
-	}
+public class TileEntityAdvancedMacerator extends AM2BaseProcessorTileEntity {
 
 	@Override
+	public String getSound() {
+		return "Machines/MaceratorOp.ogg";
+	}
+	
+	@Override
 	public int getNumOutputSlots() {
-		return 3;
+		return 2;
 	}
 
 	@Override
 	public RecipeOutput getOutputFor(ItemStack input, boolean adjustInput) {
-		return Recipes.extractor.getOutputFor(input, adjustInput);
+		return Recipes.macerator.getOutputFor(input, adjustInput);
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public ResourceLocation getGUIResource() {
-		return new ResourceLocation("adv_machines_immibis", "textures/gui/GUICenterfuge.png");
+		return new ResourceLocation("adv_machines_immibis", "textures/gui/GUIRotary.png");
 	}
 	
 	@Override
 	public String getMachineName() {
-		return "tile.advmachine.extractor.name";
+		return "tile.advmachine.macerator.name";
 	}
 	
 	@Override

@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class TileAM2Compressor extends TileAM2BaseProcessor {
+public class TileEntityAdvancedCompressor extends AM2BaseProcessorTileEntity {
 
 	@Override
 	public String getSound() {

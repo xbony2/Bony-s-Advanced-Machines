@@ -3,12 +3,12 @@ package mods.immibis.am2.container;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
-import mods.immibis.am2.tileentity.TileAM2Cutter;
+import mods.immibis.am2.tileentity.TileEntityAdvancedCutter;
 import mods.immibis.core.api.util.BaseContainer;
 
-public class ContainerCutter extends BaseContainer<TileAM2Cutter> {
+public class ContainerCutter extends BaseContainer<TileEntityAdvancedCutter> {
 
-	public ContainerCutter(EntityPlayer player, TileAM2Cutter inv) {
+	public ContainerCutter(EntityPlayer player, TileEntityAdvancedCutter inv) {
 		super(player, inv);
 		
 		for(int x = 0; x < 9; x++)
@@ -18,9 +18,9 @@ public class ContainerCutter extends BaseContainer<TileAM2Cutter> {
 			for(int x = 0; x < 9; x++)
 				addSlotToContainer(new Slot(player.inventory, x + y*9 + 9, 8+18*x, 84+18*y));
 		
-		addSlotToContainer(new Slot((IInventory)inv, TileAM2Cutter.SLOT_IN, 56, 17));
-		addSlotToContainer(new Slot((IInventory)inv, TileAM2Cutter.SLOT_OUT, 116, 35));
-		addSlotToContainer(new Slot((IInventory)inv, TileAM2Cutter.SLOT_BATTERY, 56, 53));
+		addSlotToContainer(new Slot((IInventory)inv, TileEntityAdvancedCutter.SLOT_IN, 56, 17));
+		addSlotToContainer(new Slot((IInventory)inv, TileEntityAdvancedCutter.SLOT_OUT, 116, 35));
+		addSlotToContainer(new Slot((IInventory)inv, TileEntityAdvancedCutter.SLOT_BATTERY, 56, 53));
 	}
 	
 	public int energyPixels;

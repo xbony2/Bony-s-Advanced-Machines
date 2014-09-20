@@ -18,8 +18,8 @@ public class AM2ArrayModule {
 			"A-", 'A', ic2.getItem("solarPanel"), '-', AdvancedMachines.blockArrayCable);
 		GameRegistry.addRecipe(new ItemStack(AdvancedMachines.blockArrayDevice, 1, ArrayGeneratorBlock.META_WATER),
 			"A-", 'A', ic2.getItem("waterMill"), '-', AdvancedMachines.blockArrayCable);
-		GameRegistry.addRecipe(new ItemStack(AdvancedMachines.blockArrayDevice, 1, ArrayGeneratorBlock.META_WIND),
-			"A-", 'A', ic2.getItem("windMill"), '-', AdvancedMachines.blockArrayCable);
+		/*GameRegistry.addRecipe(new ItemStack(AdvancedMachines.blockArrayDevice, 1, ArrayGeneratorBlock.META_WIND),
+			"A-", 'A', ic2.getItem("windMill"), '-', AdvancedMachines.blockArrayCable);*/
 		GameRegistry.addRecipe(new ItemStack(AdvancedMachines.blockArrayCable, 8),
 			"TTT", "TRT", "TTT", 'T', ic2.getItem("tinCableItem"), 'R', Items.redstone);
 		
